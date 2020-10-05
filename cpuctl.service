@@ -1,0 +1,12 @@
+[Unit]
+Description=Update voltage offsets on cpu after suspend
+After=suspend.target
+
+[Service]
+User=root
+Type=oneshot
+ExecStart=cpuctl --config /etc/cpuctl/config.ini
+TimeoutSec=0
+
+[Install]
+WantedBy=suspend.target

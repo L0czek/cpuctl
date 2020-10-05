@@ -3,6 +3,7 @@
 #include <stdexcept>
 #include <iostream>
 #include <unordered_map>
+#include <cmath>
 #include <iomanip>
 #include <unistd.h>
 #include <sys/ioctl.h>
@@ -39,10 +40,10 @@ void cpuctl::set_offsets(const offsets& off) {
 }
 
 int convert_voltage_to_offset(int mv) {
-    return ((int)(mv * 1.024)<<21);
+    return ((int)std::round(mv * 1.024))<<21;
 }
 
-int convert_offset_to_voltage(int offset) {
+double convert_offset_to_voltage(int offset) {
     return (offset >> 21) / 1.024;
 }
 

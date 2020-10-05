@@ -12,3 +12,7 @@ add_executable(cpuctl
     src/cpuctl.cc
     src/main.cc
 )
+
+install(TARGETS cpuctl DESTINATION bin)
+install(FILES config.ini DESTINATION /etc/cpuctl)
+install(FILES cpuctl.service DESTINATION /etc/systemd/system/)
