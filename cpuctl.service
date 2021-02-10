@@ -1,5 +1,5 @@
 [Unit]
-Description=Update voltage offsets on cpu after suspend
+Description=Update voltage offsets after suspend
 After=suspend.target
 
 [Service]
